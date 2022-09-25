@@ -1,0 +1,39 @@
+.filter-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5.8rem;
+  padding-bottom: 1.9rem;
+  border-bottom: 1px solid #bdbdbd;
+  margin-bottom: 1.8rem;
+}
+.filter {
+  display: inline-block;
+  position: relative;
+  font-size: 1.4rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  width: 8.9rem;
+  text-align: center;
+  color: #333333;
+  text-decoration: none;
+}
+/* .filter-all {
+}
+.filter-active {
+}
+.filter-completed {
+} */
+.active {
+}
+.active::after {
+  content: '';
+  width: 8.9rem;
+  height: 4px;
+  position: absolute;
+  background-color: #2f80ed;
+  bottom: -1.9rem;
+  left: 0;
+  right: 0;
+  border-radius: 4px 4px 0px 0px;
+  /* overflow: hidden; */
+}

@@ -1,0 +1,65 @@
+.todo {
+  /* background-color: red; */
+  margin-bottom: 2.7rem;
+
+  font-size: 1.8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  display: flex;
+  /* align-items: center; */
+}
+
+.todo-checkbox {
+  height: 2.4rem;
+  width: 2.4rem;
+  background-color: #2f80ed;
+  border: 1px solid #828282;
+  border-radius: 0.4rem;
+  visibility: hidden;
+  position: absolute;
+}
+
+.todo-completed {
+  text-decoration: line-through;
+  color: #333;
+}
+
+/* Checkmark */
+.checkmark {
+  height: 2.4rem;
+  width: 2.4rem;
+  /* background-color: #2f80ed; */
+  border: 1px solid #828282;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.7rem;
+}
+
+.todo-checkbox:checked ~ .checkmark {
+  background-color: #2f80ed;
+  border: 1px solid #2f80ed;
+}
+
+.icon-done {
+  display: none;
+}
+
+.todo-checkbox:checked ~ .checkmark .react-icon--done {
+  display: inline-block;
+  color: #fff;
+}
+
+/* Delete button */
+.delete-todo {
+  width: auto;
+  height: 1.8rem;
+  margin-left: auto;
+  color: #bdbdbd;
+  margin-right: 1.3rem;
+}
+.react-icon--delete-todo {
+  width: 100%;
+  height: auto;
+}
