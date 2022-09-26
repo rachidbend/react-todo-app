@@ -16,6 +16,13 @@ const options = {
         }
       });
     },
+    setStoredTodos: (state, action) => {
+      // to set the stored todos in initial start
+      action.payload.forEach(todo => {
+        state.push(todo);
+      });
+      console.log('stored todos added');
+    },
     removeTodo: (state, action) => {
       state.forEach((todo, index) => {
         if (todo.id === action.payload.id) {
@@ -46,5 +53,6 @@ const options = {
 };
 
 export const todoSlice = createSlice(options);
-export const { addTodo, toggleTodo, removeTodo, removeAll } = todoSlice.actions;
+export const { addTodo, toggleTodo, setStoredTodos, removeTodo, removeAll } =
+  todoSlice.actions;
 export default todoSlice.reducer;

@@ -17,14 +17,7 @@
   color: #333333;
   text-decoration: none;
 }
-/* .filter-all {
-}
-.filter-active {
-}
-.filter-completed {
-} */
-.active {
-}
+
 .active::after {
   content: '';
   width: 8.9rem;
@@ -35,5 +28,4 @@
   left: 0;
   right: 0;
   border-radius: 4px 4px 0px 0px;
-  /* overflow: hidden; */
 }
