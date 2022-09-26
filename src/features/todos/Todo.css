@@ -6,7 +6,7 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   display: flex;
-  /* align-items: center; */
+  align-items: center;
 }
 
 .todo-checkbox {
@@ -53,8 +53,8 @@
 
 /* Delete button */
 .delete-todo {
-  width: auto;
-  height: 1.8rem;
+  width: 2.2rem;
+  height: 2.2rem;
   margin-left: auto;
   color: #bdbdbd;
   margin-right: 1.3rem;
