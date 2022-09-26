@@ -17,8 +17,8 @@ function App() {
   // this code is to first get any stored todos, and if there was none, it would still work as normal, and this happens only when the app is first initialized
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('todos'));
-    if (data === undefined) return;
     console.log(data);
+    if (data === undefined || data === null) return;
     dispatch(setStoredTodos(data));
   }, []);
   // this code is to store the todos every time something in them changes, to make sure that all todos are always saved, and each time it is stored it over-rides the previes stored todos, so storing todos each time is enough

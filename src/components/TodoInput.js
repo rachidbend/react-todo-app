@@ -20,7 +20,7 @@ export const TodoInput = props => {
     // get the value of the input
     const text = inputEl.current.value;
     if (text === '') return;
-    // console.log(text);
+
     // create the todo
     const todo = {
       todo: text,

@@ -18,11 +18,11 @@ const options = {
     },
     setStoredTodos: (state, action) => {
       // to set the stored todos in initial start
-      if (action.payload) return;
+      if (action.payload === null) return;
       action.payload?.forEach(todo => {
         state.push(todo);
       });
-      console.log('stored todos added');
+      console.log('stored todos added', action.payload === null);
     },
     removeTodo: (state, action) => {
       state.forEach((todo, index) => {
