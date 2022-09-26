@@ -10,6 +10,9 @@ html {
 
 body {
   padding: 0 2.4rem;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 6rem;
 }
 
 li {
@@ -58,4 +61,37 @@ font-family: 'Raleway', sans-serif;
   position: relative;
   top: 0.2rem;
   /* padding-top: 0.4rem; */
+}
+
+.created {
+  position: absolute;
+  bottom: 2.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.created--text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  color: #a9a9a9;
+  text-align: center;
+}
+.created--link:link,
+.created--link:visited {
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  color: #a9a9a9;
+  font-weight: 500;
+  transition: color ease 300ms;
+}
+
+.created--link:hover,
+.created--link:active {
+  color: #333;
+}
+
+.created--link--username:link,
+.created--link--username:visited {
+  font-weight: 700;
+  text-decoration: underline;
 }

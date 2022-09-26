@@ -8,31 +8,33 @@ import { ShowCompleted } from '../../components/ShowCompleted';
 
 import './Todo.css';
 
-const selectTodos = state => state.todos;
 const selectFilter = state => state.filter;
 
 // ///////////////////////////////////////////////////
 
 // /////////////////////////////////////////////////////////////
 
-export const Todo = props => {
-  // const dispatch = useDispatch();
-  // const todos = useSelector(selectTodos);
+export const Todo = () => {
   const filter = useSelector(selectFilter);
-
+  // render diffrent components depending on which filter is selected (default filter is 'ALL')
+  // render when filter is 'ALL'
   if (filter === 'ALL') {
     return (
       <div>
         <ShowAll />
       </div>
     );
-  } else if (filter === 'ACTIVE') {
+  }
+  // render when filter is 'ACTIVE'
+  else if (filter === 'ACTIVE') {
     return (
       <div>
         <ShowActive />
       </div>
     );
-  } else if (filter === 'COMPLETED') {
+  }
+  // render when filter is 'COMPLETED'
+  else if (filter === 'COMPLETED') {
     return (
       <div>
         <ShowCompleted />

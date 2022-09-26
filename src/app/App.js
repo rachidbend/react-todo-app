@@ -7,6 +7,7 @@ import { Filters } from '../features/filter/Filters';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setStoredTodos } from '../features/todos/todoSlice';
+import { CreatedBy } from '../components/CreatedBy';
 
 const selectTodo = state => state.todos;
 
@@ -32,6 +33,7 @@ function App() {
       <Filters />
       <TodoInput />
       <Todo />
+      <CreatedBy />
     </div>
   );
 }
