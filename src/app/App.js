@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 
 import { TodoInput } from '../components/TodoInput';
-import { Todo } from '../features/todos/Todo';
+import { TodosContainer } from '../features/todos/TodosContainer';
 import { Filters } from '../features/filter/Filters';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -18,7 +18,6 @@ function App() {
   // this code is to first get any stored todos, and if there was none, it would still work as normal, and this happens only when the app is first initialized
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('todos'));
-    console.log(data);
     if (data === undefined || data === null) return;
     dispatch(setStoredTodos(data));
   }, []);
@@ -32,7 +31,7 @@ function App() {
       <h1 className="todo--title">#todo</h1>
       <Filters />
       <TodoInput />
-      <Todo />
+      <TodosContainer />
       <CreatedBy />
     </div>
   );

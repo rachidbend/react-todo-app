@@ -22,7 +22,6 @@ const options = {
       action.payload?.forEach(todo => {
         state.push(todo);
       });
-      console.log('stored todos added', action.payload === null);
     },
     removeTodo: (state, action) => {
       state.forEach((todo, index) => {
@@ -43,8 +42,7 @@ const options = {
       // if some todos were removed and the current index becomes 4, but because other todos were removed, one of the todos would end up having an index lower than the current index, for example the current index is 4 but the index of a completed todo becomes 1, the the loop can't go back to 1 and remove it, then it just leaves it and check for any other completed todos
 
       // to solve that issue i just made it start in reverse, instead of starting from the first todo, it starts from the last, so now it goes through all the todos even if thier index is changed, it would never be higher that the current, it eather be the same (if a completed todo immediatly follows another) or lower, basicly it wount miss a cmpleted todo
-      for (let i = state.length; i >= 0; i--) {
-        console.log(state[i]?.completed);
+      for (let i = state.length - 1; i >= 0; i--) {
         // if the todo is active, skip to the next loop
         if (state[i]?.completed === false) continue;
         state.splice(i, 1);

@@ -1,28 +1,24 @@
-import React, { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleTodo } from '../features/todos/todoSlice';
-import { IconContext } from 'react-icons';
-import { MdDone } from 'react-icons/md';
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { Todo } from '../features/todos/Todo';
 
 const selectTodos = state => state.todos;
 
 export const ShowAll = () => {
   const todos = useSelector(selectTodos);
-  const dispatch = useDispatch();
-
-  const checkboxEl = useRef(null);
-
-  const handleChange = event => {
-    const idEl = +event.target.parentElement.parentElement.id;
-    // console.log(idEl);
-    dispatch(toggleTodo({ id: idEl }));
-  };
 
   return (
     <ul>
       {todos.map(todo => {
-        return (
-          <li
+        return <Todo todo={todo} key={todo.id} addDelete={false} />;
+      })}
+    </ul>
+  );
+};
+
+{
+  /* <li
             key={todo.id}
             id={todo.id}
             className={todo.completed ? 'todo todo-completed' : 'todo'}
@@ -39,15 +35,11 @@ export const ShowAll = () => {
               <span className="checkmark">
                 {' '}
                 <IconContext.Provider value={{ className: 'react-icon--done' }}>
-                  <MdDone className="icon-done" />
+                  <MdDone />
                 </IconContext.Provider>
               </span>
             </label>
 
             {todo.todo}
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
+          </li> */
+}

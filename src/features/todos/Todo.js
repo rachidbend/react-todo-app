@@ -1,44 +1,63 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-// components
-import { ShowAll } from '../../components/ShowAll';
-import { ShowActive } from '../../components/ShowActive';
-import { ShowCompleted } from '../../components/ShowCompleted';
+import { IconContext } from 'react-icons';
+import { MdDone, MdDeleteOutline } from 'react-icons/md';
+import { toggleTodo, removeTodo } from './todoSlice';
 
-import './Todo.css';
+export const Todo = props => {
+  const todo = props.todo;
+  const addDelete = props.addDelete;
+  const dispatch = useDispatch();
 
-const selectFilter = state => state.filter;
+  const handleChange = event => {
+    const idEl = +event.target.parentElement.parentElement.id;
+    dispatch(toggleTodo({ id: idEl }));
+  };
 
-// ///////////////////////////////////////////////////
-
-// /////////////////////////////////////////////////////////////
-
-export const Todo = () => {
-  const filter = useSelector(selectFilter);
-  // render diffrent components depending on which filter is selected (default filter is 'ALL')
-  // render when filter is 'ALL'
-  if (filter === 'ALL') {
-    return (
-      <div>
-        <ShowAll />
-      </div>
+  const handleDelete = event => {
+    const idEl = +event.target.parentElement.parentElement.id;
+    dispatch(
+      removeTodo({
+        id: idEl,
+      })
     );
-  }
-  // render when filter is 'ACTIVE'
-  else if (filter === 'ACTIVE') {
-    return (
-      <div>
-        <ShowActive />
-      </div>
-    );
-  }
-  // render when filter is 'COMPLETED'
-  else if (filter === 'COMPLETED') {
-    return (
-      <div>
-        <ShowCompleted />
-      </div>
-    );
-  }
+  };
+
+  return (
+    <li
+      key={todo.id}
+      id={todo.id}
+      className={todo.completed ? 'todo todo-completed' : 'todo'}
+    >
+      <label>
+        <input
+          onChange={handleChange}
+          type="checkbox"
+          name=""
+          id={'checkbox-' + todo.id}
+          className="todo-checkbox"
+          checked={todo.completed ? true : false}
+        />
+        <span className="checkmark">
+          {' '}
+          <IconContext.Provider value={{ className: 'react-icon--done' }}>
+            <MdDone />
+          </IconContext.Provider>
+        </span>
+      </label>
+
+      {todo.todo}
+
+      {addDelete && (
+        <a onClick={handleDelete} href="#" className="delete-todo">
+          <IconContext.Provider
+            value={{ className: 'react-icon--delete-todo' }}
+          >
+            <MdDeleteOutline />
+          </IconContext.Provider>
+        </a>
+      )}
+    </li>
+  );
 };
