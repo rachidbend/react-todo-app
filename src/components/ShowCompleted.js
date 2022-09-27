@@ -1,20 +1,29 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
+// action creator to remove all the completed todos
 import { removeAll } from '../features/todos/todoSlice';
+
+// Icons
 import { IconContext } from 'react-icons';
 import { MdDeleteOutline } from 'react-icons/md';
+
+// Todo component is the one that return each component to make sure they work properly
 import { Todo } from '../features/todos/Todo';
 
+// selecting the todos
 const selectTodos = state => state.todos;
 
 export const ShowCompleted = () => {
   const todos = useSelector(selectTodos);
   const dispatch = useDispatch();
 
+  // when the deleteAll button is clicked dispatch the 'removeAll' action
   const handleDeleteAll = () => {
     dispatch(removeAll());
   };
 
+  // showing only the completed todos by firtly filtering them to get only the completed ones, then maping through the resulting array, and adding a button to delete all the completed todos at the end
   return (
     <ul className="todos-container">
       {todos
@@ -31,39 +40,3 @@ export const ShowCompleted = () => {
     </ul>
   );
 };
-
-{
-  /* <li
-key={todo.id}
-id={todo.id}
-className={todo.completed ? 'todo todo-completed' : 'todo'}
->
-<label>
-  <input
-    onChange={handleChange}
-    type="checkbox"
-    name=""
-    id={'checkbox-' + todo.id}
-    className="todo-checkbox"
-    checked={todo.completed ? true : false}
-  />
-  <span className="checkmark">
-    {' '}
-    <IconContext.Provider
-      value={{ className: 'react-icon--done' }}
-    >
-      <MdDone />
-    </IconContext.Provider>
-  </span>
-</label>
-{todo.todo}
-
-<a onClick={handleDelete} href="#" className="delete-todo">
-  <IconContext.Provider
-    value={{ className: 'react-icon--delete-todo' }}
-  >
-    <MdDeleteOutline />
-  </IconContext.Provider>
-</a>
-</li> */
-}

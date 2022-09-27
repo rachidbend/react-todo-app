@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import './App.css';
 
+import { useSelector, useDispatch } from 'react-redux';
+
+// action creator to set the stored todos
+import { setStoredTodos } from '../features/todos/todoSlice';
+
+// components
+import { Filters } from '../features/filter/Filters';
 import { TodoInput } from '../components/TodoInput';
 import { TodosContainer } from '../features/todos/TodosContainer';
-import { Filters } from '../features/filter/Filters';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { setStoredTodos } from '../features/todos/todoSlice';
 import { CreatedBy } from '../components/CreatedBy';
 
 const selectTodo = state => state.todos;

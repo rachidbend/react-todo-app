@@ -1,0 +1,32 @@
+.created {
+  position: absolute;
+  bottom: 2.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.created--text {
+  font-size: 1.4rem;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  color: #a9a9a9;
+}
+.created--link:link,
+.created--link:visited {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  color: #a9a9a9;
+  transition: color ease 300ms;
+}
+
+.created--link:hover,
+.created--link:active {
+  color: #333;
+}
+
+.created--link--username:link,
+.created--link--username:visited {
+  font-weight: 700;
+  text-decoration: underline;
+}

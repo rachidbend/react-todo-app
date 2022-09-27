@@ -4,18 +4,23 @@ const options = {
   name: 'todos',
   initialState: [],
   reducers: {
+    // add the todo to the ent of the todos array
     addTodo: (state, action) => {
       state.push(action.payload);
     },
+    // change the action.completed depending on the previous value
     toggleTodo: (state, action) => {
       state.forEach(todo => {
+        // look for the todo that has the same id as the one clicked in the UI
         if (todo.id === action.payload.id) {
+          // then change the state based on the previous state
           todo.completed === false
             ? (todo.completed = true)
             : (todo.completed = false);
         }
       });
     },
+    // adds the todos that it gets to the state, happens only once at the start of the app, when the state is empty
     setStoredTodos: (state, action) => {
       // to set the stored todos in initial start
       if (action.payload === null) return;
@@ -23,6 +28,8 @@ const options = {
         state.push(todo);
       });
     },
+
+    // remove a single todo that was selected in the UI
     removeTodo: (state, action) => {
       state.forEach((todo, index) => {
         if (todo.id === action.payload.id) {
@@ -30,6 +37,7 @@ const options = {
         }
       });
     },
+
     removeAll: (state, action) => {
       // this is how i tried to solve removing many completed todos
 

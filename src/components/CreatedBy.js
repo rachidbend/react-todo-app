@@ -1,6 +1,8 @@
 import React from 'react';
+import './CreatedBy.css';
 
 // hard coded this component because it does not change
+// the expression '&nbsp;' is just a space because i the Prettier extention would remove the space in those place, which are needed for better visibility
 export const CreatedBy = () => {
   return (
     <div className="created">

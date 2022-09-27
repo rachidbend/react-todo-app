@@ -1,22 +1,48 @@
 .todo {
-  /* background-color: red; */
-  margin-bottom: 2.7rem;
+  display: flex;
+  align-items: center;
 
   font-size: 1.8rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  display: flex;
-  align-items: center;
+
+  margin-bottom: 2.7rem;
 }
 
+/* a trick to hide the actual checkbox and displaying a custom checkmark instead */
 .todo-checkbox {
+  position: absolute;
   height: 2.4rem;
   width: 2.4rem;
   background-color: #2f80ed;
   border: 1px solid #828282;
   border-radius: 0.4rem;
   visibility: hidden;
-  position: absolute;
+}
+
+/* Checkmark */
+.checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.4rem;
+  width: 2.4rem;
+  border: 1px solid #828282;
+  border-radius: 0.4rem;
+  margin-right: 0.7rem;
+}
+
+/* make the checkmark look as if checked when the checkbox is checked */
+.todo-checkbox:checked ~ .checkmark {
+  background-color: #2f80ed;
+  border: 1px solid #2f80ed;
+}
+.react-icon--done {
+  display: none;
+}
+.todo-checkbox:checked ~ .checkmark .react-icon--done {
+  display: inline-block;
+  color: #fff;
 }
 
 .todo-completed {
@@ -24,39 +50,12 @@
   color: #333;
 }
 
-/* Checkmark */
-.checkmark {
-  height: 2.4rem;
-  width: 2.4rem;
-  /* background-color: #2f80ed; */
-  border: 1px solid #828282;
-  border-radius: 0.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 0.7rem;
-}
-
-.todo-checkbox:checked ~ .checkmark {
-  background-color: #2f80ed;
-  border: 1px solid #2f80ed;
-}
-
-.react-icon--done {
-  display: none;
-}
-
-.todo-checkbox:checked ~ .checkmark .react-icon--done {
-  display: inline-block;
-  color: #fff;
-}
-
 /* Delete button */
 .delete-todo {
   width: 2.2rem;
   height: 2.2rem;
-  margin-left: auto;
   color: #bdbdbd;
+  margin-left: auto;
   margin-right: 1.3rem;
 }
 .react-icon--delete-todo {

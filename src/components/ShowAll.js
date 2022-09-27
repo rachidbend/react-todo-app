@@ -1,45 +1,21 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+// Todo component is the one that return each component to make sure they work properly
 import { Todo } from '../features/todos/Todo';
 
+// selecting the todos
 const selectTodos = state => state.todos;
 
 export const ShowAll = () => {
   const todos = useSelector(selectTodos);
 
+  // showing all of the todos by maping through all of them
   return (
-    <ul>
+    <ul className="todos-container">
       {todos.map(todo => {
         return <Todo todo={todo} key={todo.id} addDelete={false} />;
       })}
     </ul>
   );
 };
-
-{
-  /* <li
-            key={todo.id}
-            id={todo.id}
-            className={todo.completed ? 'todo todo-completed' : 'todo'}
-          >
-            <label>
-              <input
-                onChange={handleChange}
-                type="checkbox"
-                name=""
-                id={'checkbox-' + todo.id}
-                className="todo-checkbox"
-                checked={todo.completed ? true : false}
-              />
-              <span className="checkmark">
-                {' '}
-                <IconContext.Provider value={{ className: 'react-icon--done' }}>
-                  <MdDone />
-                </IconContext.Provider>
-              </span>
-            </label>
-
-            {todo.todo}
-          </li> */
-}

@@ -5,13 +5,14 @@
 }
 
 html {
+  /* 10 / 16 = 0625 | to get font size easier to control */
   font-size: 62.5%;
 }
 
 body {
-  padding: 0 2.4rem;
   position: relative;
   min-height: 100vh;
+  padding: 0 2.4rem;
   padding-bottom: 6rem;
 }
 
@@ -21,22 +22,16 @@ li {
 
 .App {
   max-width: 60.8rem;
-  /* background-color: blue; */
   margin: 0 auto;
 }
 
 .todo--title {
   font-size: 3.6rem;
-  margin-top: 3.2rem;
-  text-align: center;
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
+  text-align: center;
+  margin-top: 3.2rem;
 }
-
-/* 
-font-family: 'Montserrat', sans-serif;
-font-family: 'Raleway', sans-serif;
-*/
 
 .todos-container {
   display: flex;
@@ -44,14 +39,14 @@ font-family: 'Raleway', sans-serif;
 }
 
 .btn--delete-all {
-  background-color: #eb5757;
-  border: none;
-  color: #fff;
+  font-size: 1.2rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  border-radius: 0.4rem;
   text-transform: lowercase;
-  font-size: 1.2rem;
+  color: #fff;
+  background-color: #eb5757;
+  border: none;
+  border-radius: 0.4rem;
   padding: 1.2rem 2.6rem;
   align-self: flex-end;
 }
@@ -60,38 +55,4 @@ font-family: 'Raleway', sans-serif;
   height: 1.2rem;
   position: relative;
   top: 0.2rem;
-  /* padding-top: 0.4rem; */
-}
-
-.created {
-  position: absolute;
-  bottom: 2.4rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.created--text {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.4rem;
-  color: #a9a9a9;
-  text-align: center;
-}
-.created--link:link,
-.created--link:visited {
-  font-family: 'Montserrat', sans-serif;
-  text-decoration: none;
-  color: #a9a9a9;
-  font-weight: 500;
-  transition: color ease 300ms;
-}
-
-.created--link:hover,
-.created--link:active {
-  color: #333;
-}
-
-.created--link--username:link,
-.created--link--username:visited {
-  font-weight: 700;
-  text-decoration: underline;
 }

@@ -1,20 +1,23 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { showAll, showActive, showCompleted } from './filterSlice';
 import './Filters.css';
 
-// selecting the filters
+// action creators to select which filter is selected, 'ALL', 'AVTIVE' or 'COMPLETED'
+import { showAll, showActive, showCompleted } from './filterSlice';
 
+// selecting the filters
 const selectFilter = state => state.filter;
 
-export const Filters = props => {
+export const Filters = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
+  // selecting the filter buttons
   const allEl = useRef(null);
   const activeEl = useRef(null);
   const completedEl = useRef(null);
 
+  // when ever the filter changes, change which filter in the UI is displayed as selected
   useEffect(() => {
     filter === 'ALL'
       ? allEl.current.classList?.add('active')

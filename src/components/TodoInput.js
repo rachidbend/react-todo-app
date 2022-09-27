@@ -1,11 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo } from '../features/todos/todoSlice';
 import './TodoInput.css';
 
+// action creator to add a todo
+import { addTodo } from '../features/todos/todoSlice';
+
+// selecting the filter, to hide this component when the filter is 'COMPLETED'
 const selectFilter = state => state.filter;
 
-export const TodoInput = props => {
+export const TodoInput = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
@@ -15,10 +18,14 @@ export const TodoInput = props => {
 
   const handleClick = e => {
     e.preventDefault();
+
     // make an id using time stamp
     const id = String(Date.now()).slice(-6);
+
     // get the value of the input
     const text = inputEl.current.value;
+
+    // guard clause to make sure that the added todo is not empty
     if (text === '') return;
 
     // create the todo
