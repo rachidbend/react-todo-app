@@ -4,6 +4,7 @@
   padding-bottom: 1.9rem;
   border-bottom: 1px solid #bdbdbd;
   margin: 5.8rem 0 1.8rem 0;
+  position: relative;
 }
 
 .filter {
@@ -17,7 +18,7 @@
   color: #333333;
   width: 8.9rem;
 }
-
+/* Simple vertion of the toggle */
 /* the blue underline under the selected filter in the UI */
 .active::after {
   content: '';
@@ -27,6 +28,67 @@
   bottom: -2rem;
   left: 0;
   right: 0;
+  background-color: transparent;
+  border-radius: 4px 4px 0px 0px;
+}
+
+/* Animated vertion of the toggle */
+.filter-container::after {
+  content: '';
+  position: absolute;
+  width: 8.9rem;
+  height: 0.4rem;
+  bottom: -0.1rem;
+  left: 5.7rem;
+  right: 0;
   background-color: #2f80ed;
   border-radius: 4px 4px 0px 0px;
+  transition: left ease-in-out 250ms;
+}
+
+.active--all::after {
+  left: 5.7rem;
+}
+.active--active::after {
+  left: 25.9rem;
+}
+.active--completed::after {
+  left: 46.2rem;
+}
+
+@media (max-width: 656px) {
+  .App {
+    width: 42rem;
+  }
+  .filter-container::after {
+    left: 2.6rem;
+  }
+  .active--all::after {
+    left: 2.6rem;
+  }
+  .active--active::after {
+    left: 16.6rem;
+  }
+  .active--completed::after {
+    left: 30.6rem;
+  }
+}
+/* 468 */
+
+@media (max-width: 468px) {
+  .App {
+    width: 32rem;
+  }
+  .filter-container::after {
+    left: 0.9rem;
+  }
+  .active--all::after {
+    left: 0.9rem;
+  }
+  .active--active::after {
+    left: 11.5rem;
+  }
+  .active--completed::after {
+    left: 22.2rem;
+  }
 }

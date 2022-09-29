@@ -19,17 +19,43 @@ export const Filters = () => {
 
   // when ever the filter changes, change which filter in the UI is displayed as selected
   useEffect(() => {
-    filter === 'ALL'
-      ? allEl.current.classList?.add('active')
-      : allEl.current.classList?.remove('active');
+    // this code is for the Simple vertion of the toggle
+    // filter === 'ALL'
+    //   ? allEl.current.classList?.add('active')
+    //   : allEl.current.classList?.remove('active');
 
-    filter === 'ACTIVE'
-      ? activeEl.current.classList?.add('active')
-      : activeEl.current.classList?.remove('active');
+    // filter === 'ACTIVE'
+    //   ? activeEl.current.classList?.add('active')
+    //   : activeEl.current.classList?.remove('active');
 
-    filter === 'COMPLETED'
-      ? completedEl.current.classList?.add('active')
-      : completedEl.current.classList?.remove('active');
+    // filter === 'COMPLETED'
+    //   ? completedEl.current.classList?.add('active')
+    //   : completedEl.current.classList?.remove('active');
+
+    // this code is for the Animated vertion of the toggle
+    if (filter === 'ALL') {
+      allEl.current.classList?.add('active');
+      allEl.current.parentElement.classList?.add('active--all');
+    } else {
+      allEl.current.classList?.remove('active');
+      allEl.current.parentElement.classList?.remove('active--all');
+    }
+
+    if (filter === 'ACTIVE') {
+      activeEl.current.classList?.add('active');
+      allEl.current.parentElement.classList?.add('active--active');
+    } else {
+      activeEl.current.classList?.remove('active');
+      allEl.current.parentElement.classList?.remove('active--active');
+    }
+
+    if (filter === 'COMPLETED') {
+      completedEl.current.classList?.add('active');
+      allEl.current.parentElement.classList?.add('active--completed');
+    } else {
+      completedEl.current.classList?.remove('active');
+      allEl.current.parentElement.classList?.remove('active--completed');
+    }
   }, [filter]);
 
   return (
@@ -39,7 +65,7 @@ export const Filters = () => {
         onClick={() => {
           dispatch(showAll());
         }}
-        className="filter filter-all"
+        className="filter filter-all filter-activated"
         ref={allEl}
       >
         All
